@@ -1,11 +1,11 @@
 {
   "name": "Python + MySQL",
 
-  "image": "mcr.microsoft.com/devcontainers/python:0-3.11-bullseye",
+  "image": "mcr.microsoft.com/devcontainers/python:3-3.12",
 
-  "features": {
-    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
-  }
+  //"features": {
+  //  "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  //}
 
   //"updateContentCommand": "pip install -r requirements.txt"
 
