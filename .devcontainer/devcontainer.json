@@ -1,6 +1,11 @@
 {
-  "name": "BAI Python & MySQL Sakila",
+  "name": "Python & MySQL Sakila",
   "image": "mcr.microsoft.com/devcontainers/python:3.10",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:1": {
+      "version": "latest"
+    }
+  },
   "customizations": {
     "vscode": {
       "extensions": [
@@ -9,8 +14,6 @@
       ]
     }
   },
-  // Ejecuta el contenedor de Sakila y las instalaciones de pip automáticamente
-  "postCreateCommand": "docker run -d -p 3306:3306 --name sakila -e MYSQL_ROOT_PASSWORD=password dbaden/sakila && pip install pymysql ipython-sql SQLAlchemy==1.4.49",
-  
+  "postCreateCommand": "pip install pymysql ipython-sql SQLAlchemy==1.4.49 && until docker info; do sleep 1; done && docker run -d -p 3306:3306 --name sakila -e MYSQL_ROOT_PASSWORD=password dbaden/sakila",
   "forwardPorts": [3306]
 }
