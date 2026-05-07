@@ -5,9 +5,9 @@
 
   "features": {
     "ghcr.io/devcontainers/features/docker-in-docker:2": {}
-  },
+  }
 
-  "updateContentCommand": "pip install -r requirements.txt"
+  //"updateContentCommand": "pip install -r requirements.txt"
 
   //"postStartCommand": "docker start sakila || docker run -d -p 3306:3306 --name sakila -e MYSQL_ROOT_PASSWORD=password dbaden/sakila"
 }
