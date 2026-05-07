@@ -1,13 +1,14 @@
 {
-  "name": "Python + MySQL",
+  "name": "Python",
 
-  "image": "mcr.microsoft.com/devcontainers/python:3-3.12",
-
-  //"features": {
-  //  "ghcr.io/devcontainers/features/docker-in-docker:2": {}
-  //}
+  "image": "mcr.microsoft.com/devcontainers/python:3.11",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {
+      "moby": false
+    }
+  },
+  "postCreateCommand": "pip install -r requirements.txt",
+  "postStartCommand": "docker start sakila || docker run -d -p 3306:3306 --name sakila -e MYSQL_ROOT_PASSWORD=password dbaden/sakila"
 
   //"updateContentCommand": "pip install -r requirements.txt"
-
-  //"postStartCommand": "docker start sakila || docker run -d -p 3306:3306 --name sakila -e MYSQL_ROOT_PASSWORD=password dbaden/sakila"
 }
