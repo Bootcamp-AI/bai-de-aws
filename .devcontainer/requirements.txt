@@ -3,3 +3,4 @@ ipython-sql
 SQLAlchemy==1.4.49
 cryptography
 jupyter
+
