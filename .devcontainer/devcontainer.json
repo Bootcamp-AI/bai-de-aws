@@ -1,5 +1,13 @@
 {
-  "name": "BAI env",
+  "name": "Mi Codespace",
   "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
-  "postCreateCommand": "docker run -d -p 3306:3306 --name sakila -e MYSQL_ROOT_PASSWORD=password dbaden/sakila"
+
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+    "ghcr.io/devcontainers/features/python:1": {
+      "version": "3.10"
+    }
+  },
+
+  "postCreateCommand": "docker rm -f sakila || true && docker run -d -p 3306:3306 --name sakila -e MYSQL_ROOT_PASSWORD=password dbaden/sakila && pip install pymysql ipython-sql SQLAlchemy==1.4.49 cryptography"
 }
