@@ -7,7 +7,10 @@
       "moby": false
     }
   },
-  "postCreateCommand": "chmod +x .devcontainer/setup.sh && .devcontainer/setup.sh"
+  //"postCreateCommand": "chmod +x .devcontainer/setup.sh && .devcontainer/setup.sh"
+  "postCreateCommand": "pip install -r /workspaces/bai-de-aws/.devcontainer/requirements.txt",
+  "postStartCommand": "docker start sakila || docker run -d -p 3306:3306 --name sakila -e MYSQL_ROOT_PASSWORD=password dbaden/sakila"
+
 
   //"updateContentCommand": "pip install -r requirements.txt"
 }
